@@ -1,0 +1,118 @@
+# ===============================================================
+# Prepare tex table with estimated parameters
+# ===========================================
+# Define format of figures:
+nb.dec <- 2 # number of decimal numbers
+format.nb  <- paste("%.",nb.dec,"f",sep="")
+format.nb0 <- paste("%.",0,"f",sep="")
+format.nb4 <- paste("%.",4,"f",sep="")
+
+
+latex.table <- rbind(
+  paste("Average TFP&",
+        "$\\bar{A}$ &",
+        "\\eqref{eq:damage}&",
+        make.entry(model_sol$parameters$A_bar,format.nb),
+        "& \\%",
+        "\\\\",sep=""),
+  paste("Standard deviation of TFP shock&",
+        "$\\sigma_A$ &",
+        "\\eqref{eq:damage}&",
+        make.entry(100*model_sol$parameters$sigma_a,format.nb),
+        "& ",
+        "\\\\",sep=""),
+  paste("Size of disasters&",
+        "$\\mu_D$ &",
+        "\\eqref{eq:damage}&",
+        make.entry(100*model_sol$parameters$mu_d,format.nb),
+        "& \\%",
+        "\\\\",sep=""),
+  paste("Constant term in damage specification &",
+        "$\\ell_0^D$ &",
+        "\\eqref{eq:damage}&",
+        make.entry(model_sol$parameters$ell0.D,format.nb),
+        "\\\\",sep=""),
+  paste("Slope coefficient in damage specification &",
+        "$\\ell_1^D$ &",
+        "\\eqref{eq:damage}&",
+        make.entry(model_sol$parameters$ell1.D[9],format.nb),
+        "\\\\",sep=""),
+  paste("Size of carbon releases&",
+        "$\\mu_N$ &",
+        "\\eqref{eq:damage_N}&",
+        make.entry(model_sol$parameters$mu_n,format.nb),
+        "& GtCO$_2$",
+        "\\\\",sep=""),
+  paste("Constant term in carbon-release specification &",
+        "$\\ell_0^N$ &",
+        "\\eqref{eq:damage_N}&",
+        make.entry(model_sol$parameters$ell0.N,format.nb),
+        "\\\\",sep=""),
+  paste("Slope coefficient in carbon-release specification &",
+        "$\\ell_1^N$ &",
+        "\\eqref{eq:damage_N}&",
+        make.entry(model_sol$parameters$ell1.N[9],format.nb),
+        "\\\\",sep=""),
+  paste("Auto-correlation of carbon releases &",
+        "$\\rho_N$ &",
+        "\\eqref{eq:damage_N}&",
+        make.entry(model_sol$parameters$rho.N,format.nb),
+        "\\\\",sep=""),
+  paste("Standard deviation radiative forcings shock  &",
+        "$\\sigma_{\\eta,F}$ &",
+        "\\eqref{eq:radforcAppendix}&",
+        make.entry(100*model_sol$parameters$sigma_eta_f,format.nb),
+        "& \\%\\\\",sep=""),
+  paste("Backstop price  &",
+        "$pback$ &",
+        "\\eqref{eq:bckstopAppendix}&",
+        make.entry(model_sol$parameters$pback,format.nb0),
+        "& \\$",
+        "\\\\",sep=""),
+  paste("Sea level coefficient on $\\Delta_{(T_{AT},T_{0,S})}$  &",
+        "$a_{SAT}$ &",
+        "\\eqref{eq:SeaLAppendix}&",
+        make.entry(model_sol$parameters$a_sat,format.nb4),
+        "& m/year/\\degree C",
+        "\\\\",sep=""),
+  paste("Sea level correction  &",
+        "$c_{SAT}$ &",
+        "\\eqref{eq:SeaLAppendix}&",
+        make.entry(model_sol$parameters$c_sat,format.nb4),
+        "& m/period",
+        "\\\\",sep=""),
+  paste("Coef. on imposed function form of $\\mu_t$ &",
+        "$\\theta_{a,opt} $ &",
+        "\\eqref{eq:muAppendix}&",
+        make.entry(model_sol$theta.opt[1],format.nb),
+        "&",
+        "",
+        "\\\\",sep=""),
+  paste("Coef. on imposed function form of $\\mu_t$ &",
+        "$\\theta_{b,opt} $ &",
+        "\\eqref{eq:muAppendix}&",
+        make.entry(abs(model_sol$theta.opt[2]),format.nb),
+        "&",
+        "",
+        "\\\\",sep="")
+  
+  # paste("Sea level shock  &",
+  #       "$\\sigma_H$ &",
+  #       "\\eqref{eq:SeaLAppendix}&",
+  #       make.entry(model_sol$parameters$sigma_H,format.nb4),
+  #       "& ",
+  #       "\\\\",sep="")
+)
+
+latex.file <- paste("outputs/Tables/table_param_est.txt",sep="")
+
+write(latex.table, file = latex.file)
+
+
+# paste(" &",
+#       "$ $ &",
+#       "\\eqref{eq:}&",
+#       make.entry(model_sol$parameters$,format.nb),
+#       "&",
+#       "",
+#       "\\\\",sep="")
