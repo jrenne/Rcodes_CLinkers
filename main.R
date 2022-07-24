@@ -3,7 +3,7 @@ rm(list=ls(all=T))
 library(tictoc)
 
 #path
-setwd("~/Dropbox/Research/TIBs/Rcodes_RFS") # "/Users/pchikhan/Dropbox/TIBs/Rcodes_v8_CLRP" 
+setwd("~/Dropbox/Research/TIBs/Rcodes_CLinkers")
 
 #Optimization of parameters
 indic_estim       <-0 # 1 if you want to launch an estimation
