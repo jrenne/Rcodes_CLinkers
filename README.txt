@@ -2,6 +2,8 @@
 # PRICING CLIMATE LINKERS
 # ====================================================
 # 
+# Pauline Chikhani and Jean-Paul Renne
+# 
 # This version: July 2022.
 # ====================================================
 
