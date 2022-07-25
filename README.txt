@@ -8,7 +8,7 @@
 # ====================================================
 
 
-These codes replicate the results of the paper entitled "Pricing Climate Linkers".
+These codes replicate the results of the paper entitled "Pricing Climate Linkers," available at https://papers.ssrn.com/sol3/papers.cfm?abstract_id=3881262
 
 
 
